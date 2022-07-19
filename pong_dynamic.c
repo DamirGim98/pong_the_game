@@ -116,6 +116,8 @@ void ShowWelcome() {
             exit(0);
         }
     } while (key != 's');
+    printf("\033[2J");
+    printf("\033[0;0f");
 }
 
 void ShowField(char mas[][width]) {
@@ -299,6 +301,7 @@ void GameLoop() {
         BallLogic(&BallX, &BallY, &BallDirX, &BallDirY, &x1, &y1, &x2, &y2, &CountPlayer1, &CountPlayer2);
         ExitCondition(CountPlayer1, CountPlayer2);
         usleep(50000);
+        refresh();
         iteration++;
     } while (key != '.');
 }
